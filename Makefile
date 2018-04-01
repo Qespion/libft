@@ -1,7 +1,9 @@
-NAME		= libft
-CC			= gcc
-CFLAGS	= -Wall -Wextra -Werror
-SRCS= ft_atoi.c \
+CC=gcc
+AR=ar
+ARFLAGS=rc
+CFLAGS=-Wall -Wextra -Werror 
+NAME=libft.a
+SRC= ft_atoi.c \
      ft_putchar.c \
      ft_strcmp.c \
      ft_strncmp.c \
@@ -21,6 +23,15 @@ SRCS= ft_atoi.c \
      ft_strrchr.c \
      ft_strlcat.c \
      ft_strnew.c \
+     ft_strdel.c \
+     ft_strclr.c \
+     ft_strequ.c \
+     ft_strnequ.c \
+     ft_striter.c \
+     ft_striteri.c \
+     ft_strmap.c \
+     ft_strmapi.c \
+     ft_strtrim.c \
      ft_bzero.c \
      ft_memdel.c \
      ft_memchr.c \
@@ -44,22 +55,26 @@ SRCS= ft_atoi.c \
      ft_putchar_fd.c \
      ft_putstr.c
 
-OBJS		= $(SRCS:.c=.o)
+OBJ=$(SRC:.c=.o)
 
+all: $(NAME)
 
-all : $(NAME)
+$(NAME): $(OBJ)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+	ranlib $(NAME)
 
-$(NAME) :   $(OBJS)
-	ar -rc $(NAME).a $(OBJS)
+%.o: %.c
+	$(CC) -o $@ -c $< $(CFLAGS) -shared
 
-so: $(CC) -g -fPIC $(CFLAGS) $(SRCS) -shared -o libft.so
+so :
+	$(CC) $(CFLAGS) -fPIC $(SRC) -shared -o libft.so
 
-clean :
-	rm -f *.o
+clean:
+	rm -f $(OBJ)
 
-fclean : clean
-	rm -f $(NAME).a
+fclean: clean
+	rm -f $(NAME)
 
-re : fclean all
+re: fclean all
 
 .PHONY : clean fclean re
