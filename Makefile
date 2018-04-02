@@ -18,6 +18,7 @@ SRC= ft_atoi.c \
      ft_memccpy.c \
      ft_memalloc.c \
      ft_strcat.c \
+     ft_strlcat.c \
      ft_strncat.c \
      ft_strchr.c \
      ft_strrchr.c \
@@ -46,6 +47,7 @@ SRC= ft_atoi.c \
      ft_putnbr_fd.c \
      ft_putendl_fd.c \
      ft_putendl.c \
+     ft_itoa.c \
      ft_putnbr.c \
      ft_strnstr.c \
      ft_strjoin.c \
