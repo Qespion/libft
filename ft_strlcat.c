@@ -26,12 +26,3 @@ size_t			ft_strlcat(char *dst, const char *src, size_t size)
 	dst[r] = '\0';
 	return (dst_len + src_len);
 }
-
-int		main()
-{
-	char	tab1[20] = "test";
-	char	tab2[20] = "aussi";
-	printf("%d\n", ft_strlcat(tab1, tab2, 0));
-	printf("%s\n", tab1);
-	return (0);
-}

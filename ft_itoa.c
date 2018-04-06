@@ -1,7 +1,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-int	ft_size(int n)
+static int	ft_size(int n)
 {
 	int size;
 

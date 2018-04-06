@@ -5,6 +5,13 @@
 # include <string.h>
 # include <stdlib.h>
 
+typedef struct	s_list
+{
+	void			*data;
+	size_t			size;
+	struct s_list	*next;
+}				t_list;
+
 void	ft_putchar(char c);
 int	ft_atoi(char *str);
 void	ft_putstr(char *str);
@@ -58,5 +65,7 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char		*ft_strsub(char const *s, unsigned int start, size_t len);
 char		*ft_strtrim(char const *s);
 char				*ft_itoa(int n);
+size_t			ft_strlcat(char *dst, const char *src, size_t size);
+t_list			*ft_lstnew(void const *content, size_t content_size);
 
 #endif

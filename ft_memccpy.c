@@ -2,23 +2,20 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	size_t		r;
-	char		*cpy_dst;
-	char		*cpy_src;
+	char *cpy_src;
+	char *cpy_dst;
 
-	r = 0;
-	cpy_dst = dst;
-	cpy_src = (char *)src;
-	while (r < n && cpy_src[r] != c)
+	cpy_src = (char*)src;
+	cpy_dst = (char*)dst;
+	while (n > 0 && *cpy_src != c)
 	{
-		cpy_dst[r] = cpy_src[r];
-		r++;
+		n--;
+		*cpy_dst++ = *cpy_src++;
 	}
-	if (cpy_src[r] == c)
+	if (n > 0)
 	{
-		cpy_dst[r] = cpy_src[r];
-		return (cpy_dst + ++r);
+		*cpy_dst++ = *cpy_src++;
+		return ((void*)cpy_dst);
 	}
 	else
 		return (NULL);
-}

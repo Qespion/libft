@@ -55,7 +55,8 @@ SRC= ft_atoi.c \
      ft_memset.c \
      ft_isdigit.c \
      ft_putchar_fd.c \
-     ft_putstr.c
+     ft_putstr.c \
+     ft_lstnew.c 
 
 OBJ=$(SRC:.c=.o)
 
