@@ -69,24 +69,30 @@ SRC= srcs/ft_atoi.c \
      srcs/ft_abs.c \
      srcs/ft_is_lowercase.c \
      srcs/ft_is_uppercase.c \
-     srcs/ft_free_tab.c
+     srcs/ft_free_tab.c \
+     srcs/get_next_line.c
+
+C_GREEN	=	"\033[32m"
+C_BLUE	=	"\033[36m"
+C_BASE	=	"\033[00m"
 
 OBJ=$(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(C_GOOD) $(AR) $(ARFLAGS) $(NAME) $(OBJ)
-	ranlib $(NAME)
-
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@echo $(C_GREEN)"[LIBFT LOCKED AND LOADED !]" $(C_BASE)
 %.o: %.c
-	gcc $(CFLAGS) -c $< -o $@ -I includes/
+	@gcc $(CFLAGS) -c $< -o $@ -I includes/
+	@echo "file =" $(C_BLUE){ $< } $(C_BASE)
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
